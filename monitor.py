@@ -87,12 +87,12 @@ def parse_incoming_texts():
 
 class basic_monitor: #this looks at a time file and sends alarm itf it's been too long without updates
     def __init__(self , filein , check_sec): #check sec is how many seconds without updates is ok
-        if os.path.isdir('last_update_repo') == False:
-            print("cloning the last update repo git archive , it's public ")
-            os.system('git clone https://github.com/cjchandler/last_update_repo.git')
-        else:
-            print("pull the latest version")
-            os.system("cd last_update_repo \n git pull origin main")
+        # ~ if os.path.isdir('last_update_repo') == False:
+            # ~ print("cloning the last update repo git archive , it's public ")
+            # ~ os.system('git clone https://github.com/cjchandler/last_update_repo.git')
+        # ~ else:
+            # ~ print("pull the latest version")
+            # ~ os.system("cd last_update_repo \n git pull origin main")
         self.filename = filein
         self.backup_interval = check_sec
 
@@ -211,20 +211,6 @@ class basic_monitor: #this looks at a time file and sends alarm itf it's been to
 
         return( mean )
 
-    def pull_through_git(self ):
-        global last_backup_time
-        global backup_interval
-        if( True):
-
-            try:
-                os.system("cd incubator_daily/incubator_daily \n git fetch --all && git reset --hard origin/main")
-                last_backup_time = time.time()
-                print("backup via git is gotten")
-
-            except:
-                print("failed to get data updates via git")
-                self.alarms_active_dict['git alarm'] = True
-                # ~ self.git_alarm.sound_alarm( "could not pull git to server " + time.ctime() )
 
 
     def look_at_data_update_alarm_states(self):
