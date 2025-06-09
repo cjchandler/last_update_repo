@@ -198,7 +198,7 @@ class basic_monitor: #this looks at a time file and sends alarm itf it's been to
 #smv4 = server_monitor("today_dataV4.csv" , False)
 
 
-growth_chamber = basic_monitor( "hoz_tomatoes.txt" , 60*10)#10 min delay
+growth_chamber = basic_monitor( "mini_inflate.txt" , 60*6)#10 min delay
 incubator_v4 = basic_monitor( "incubator_v4.txt" , 60*7)
 incubator_v2 = basic_monitor( "incubator_v2.txt" , 60*7)
 
