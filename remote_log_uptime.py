@@ -23,7 +23,7 @@ def add_commit_push_through_git( last_backup_time,  backup_interval):
             print("didn't commit to git")
 
     else: 
-        print("not time for backup yet")
+        print("not time for backup yet" , time.time() - (last_backup_time + backup_interval))
        
             
     return backedup
