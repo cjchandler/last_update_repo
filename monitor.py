@@ -198,12 +198,12 @@ class basic_monitor: #this looks at a time file and sends alarm itf it's been to
 #smv4 = server_monitor("today_dataV4.csv" , False)
 
 
-growth_chamber = basic_monitor( "mini_inflate.txt" , 60*6)#10 min delay
+mini_inflate = basic_monitor( "mini_inflate.txt" , 60*6)#10 min delay
 incubator_v4 = basic_monitor( "incubator_v4.txt" , 60*7)
 incubator_v2 = basic_monitor( "incubator_v2.txt" , 60*7)
 
 while True:
-    growth_chamber.do_all()
+    mini_inflate.do_all()
     incubator_v4.do_all()
     incubator_v2.do_all()
     print("sleeping- last repo monitor that all files are being updated")
