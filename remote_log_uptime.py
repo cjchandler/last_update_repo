@@ -2,10 +2,10 @@ import os
 import time
 
 def add_commit_push_through_git( last_backup_time,  backup_interval):
-    
+    backedup = last_backup_time
 
     if( time.time() > last_backup_time + backup_interval):
-
+        
         try:
             
             f = open("/home/carl/Git_Projects/last_update_repo/mini_inflate.txt", "w")
@@ -21,7 +21,7 @@ def add_commit_push_through_git( last_backup_time,  backup_interval):
             backedup = time.time()
         except:
             print("didn't commit to git")
-            backedup = last_backup_time
+
 
        
             
