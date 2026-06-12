@@ -21,6 +21,7 @@ def push_latest_timestamp( path_to_last_update_repo , project_name_txt ):
     print("backup via git is done")
 
 
+
 def push_latest_timestamp_if_needed( path_to_last_update_repo , project_name_txt , push_interval_sec ):
     tnow = time.time()
     
