@@ -33,7 +33,7 @@ def push_latest_timestamp_if_needed( path_to_last_update_repo , project_name_txt
     #when did it last push a git commit to github? it would be on the last commit, so check that: 
 
     
-    # Run the command and capture its output
+    # Run the command and capture its output, cwd makes sure you're using the git archive last update repo not some other dev git archive
     result = subprocess.run(["git", "log", "-1", "--format=%ct"], capture_output=True, text=True, cwd= path_to_last_update_repo)
     tpush = result.stdout.strip()
     
