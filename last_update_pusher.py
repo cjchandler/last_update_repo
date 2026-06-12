@@ -32,8 +32,10 @@ def push_latest_timestamp_if_needed( path_to_last_update_repo , project_name_txt
     
     #when did it last push a git commit to github? it would be on the last commit, so check that: 
 
+    
+    os.system(
     # Run the command and capture its output
-    result = subprocess.run(["git", "log", "-1", "--format=%ct"], capture_output=True, text=True)
+    result = subprocess.run(["cd ", "path_to_last_update_repo", "\n" ,"git", "log", "-1", "--format=%ct"], capture_output=True, text=True)
     tpush = result.stdout.strip()
     
     last_push_timestamp = float(tpush)
