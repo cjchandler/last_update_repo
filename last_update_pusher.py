@@ -22,6 +22,11 @@ def push_latest_timestamp( path_to_last_update_repo , project_name_txt ):
 
 def push_latest_timestamp_if_needed( path_to_last_update_repo , project_name_txt , push_interval_sec ):
     tnow = time.time()
+    #update the project file with current time
+    f = open( path_to_last_update_repo + project_name_txt, "w")
+    f.write(str(tnow))
+    f.close()
+    
     #look at the last time we pushed
     with open(path_to_last_update_repo + project_name_txt, "r", encoding="utf-8") as file:
         timestampstr = file.read()
