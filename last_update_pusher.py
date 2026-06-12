@@ -34,6 +34,7 @@ def push_latest_timestamp_if_needed( path_to_last_update_repo , project_name_txt
     # Run the command and capture its output
     result = subprocess.run(["git", "log", "-1", "--format=%ct"], capture_output=True, text=True)
     tpush = result.stdout.strip()
+    print("last push was at : ",tpush) 
     
     last_push_timestamp = float(tpush)
     
