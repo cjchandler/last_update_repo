@@ -2,6 +2,7 @@
 
 import os
 import time
+import subprocess
 
 def push_latest_timestamp( path_to_last_update_repo , project_name_txt ): 
     tnow = time.time() 
@@ -22,17 +23,22 @@ def push_latest_timestamp( path_to_last_update_repo , project_name_txt ):
 
 def push_latest_timestamp_if_needed( path_to_last_update_repo , project_name_txt , push_interval_sec ):
     tnow = time.time()
+    
     #update the project file with current time
     f = open( path_to_last_update_repo + project_name_txt, "w")
     f.write(str(tnow))
     f.close()
     
-    #look at the last time we pushed
-    with open(path_to_last_update_repo + project_name_txt, "r", encoding="utf-8") as file:
-        timestampstr = file.read()
-        last_push_timestamp = float(timestampstr)
+    #when did it last push a git commit to github? it would be on the last commit, so check that: 
+
+    # Run the command and capture its output
+    result = subprocess.run(["git", "log", "-1", "--format=%ct"], capture_output=True, text=True)
+    tpush = result.stdout.strip()
+    
+    last_push_timestamp = float(tpush)
     
     #push if needed now
     if( tnow > last_push_timestamp + push_interval_sec):
         push_latest_timestamp(path_to_last_update_repo , project_name_txt)
 
+push_latest_timestamp_if_needed( "/home/cjchandler/Git_Projects/last_update_repo/" , "mike_desktop_online.txt" , 10)
