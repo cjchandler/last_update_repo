@@ -10,7 +10,7 @@ last_update_pusher.py has a function in it, so you can integrate that into a pyt
 
 There is a server script called update_monitor_sms.py and update_monitor_slack.py. These are designed to run on servers ( I use python anywhere) and if there is no update for 5 min, they send an alarm to my phone on slack or sms
  
- 
+This process makes tons of commits... so you need to manually remove the commit history once in a while
 
 
 
