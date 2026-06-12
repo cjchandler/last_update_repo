@@ -12,7 +12,7 @@ There is a server script called update_monitor_sms.py and update_monitor_slack.p
  
 This process makes tons of commits... so you need to manually remove the commit history once in a while. 
 Put it as a monthly in your calendar, it's good to keep an eye on this system, alarms are only good if you can trust the, and looking at it to make sure it's working is important
- 
+ git checkou
 
 
 

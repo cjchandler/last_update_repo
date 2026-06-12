@@ -55,7 +55,10 @@ class basic_monitor: #this looks at a time file and sends alarm itf it's been to
             os.system('git clone https://github.com/cjchandler/last_update_repo.git')
         else:
             print("pull the latest version")
-            os.system("cd last_update_repo \n git pull origin main")
+            os.system("cd last_update_repo \n git fetch origin")
+            os.system("cd last_update_repo \n git reset --hard origin/main")
+
+
         self.filename = filein
         self.backup_interval = backup_interval
 
@@ -146,15 +149,19 @@ class basic_monitor: #this looks at a time file and sends alarm itf it's been to
         self.send_alarms()
 
 
-incubator_v4 = basic_monitor( "incubator_v4.txt" , 60*4)
+#incubator_v4 = basic_monitor( "incubator_v4.txt" , 60*4)
 incubator_v2 = basic_monitor( "incubator_v2.txt" , 60*4)
+incubator_VDP = basic_monitor( "incubator_VDP.txt" , 60*4)
+#test_mike = basic_monitor( "mike_desktop_online.txt" , 60*4)
 #incubator_v5a = basic_monitor( "incubator_v5a.txt" , 60*4)
 
 
 while True:
-    incubator_v4.do_all()
+    #incubator_v4.do_all()
     incubator_v2.do_all()
-    time.sleep(0.5)
-  
+    incubator_VDP.do_all()
+    #test_mike.do_all()
+    #incubator_v5a.do_all()
     print("sleeping, all checks done for now")
     time.sleep(60)
+
