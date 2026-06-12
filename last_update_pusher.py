@@ -12,7 +12,7 @@ def push_latest_timestamp( path_to_last_update_repo , project_name_txt ):
     f.close()
     
     #push that to git
-    os.system('cd '+ path_to_last_update_repo + ' \n git pull origin main --no-edit') #the no-edit is so it merges automatically 
+    os.system('cd '+ path_to_last_update_repo + ' \n git pull origin main --no-edit --allow-unrelated-histories') #the no-edit is so it merges automatically 
     
     os.system( 'cd '+ path_to_last_update_repo + ' \n git add . \n  git commit -a -m "data_automatic" ')
             
