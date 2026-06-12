@@ -42,4 +42,4 @@ def push_latest_timestamp_if_needed( path_to_last_update_repo , project_name_txt
     if( tnow > last_push_timestamp + push_interval_sec):
         push_latest_timestamp(path_to_last_update_repo , project_name_txt)
 
-push_latest_timestamp_if_needed( "/home/cjchandler/Git_Projects/last_update_repo/" , "mike_desktop_online.txt" , 10)
+#push_latest_timestamp_if_needed( "/home/cjchandler/Git_Projects/last_update_repo/" , "mike_desktop_online.txt" , 10)
