@@ -154,6 +154,7 @@ incubator_v2 = basic_monitor( "incubator_v2.txt" , 60*4)
 while True:
     incubator_v4.do_all()
     incubator_v2.do_all()
-    #incubator_v5a.do_all()
+    time.sleep(0.5)
+  
     print("sleeping, all checks done for now")
     time.sleep(60)
